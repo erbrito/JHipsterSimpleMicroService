@@ -1,0 +1,12 @@
+version: '2'
+services:
+    serv3-app:
+        image: serv3
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://serv3-mysql:3306/serv3?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+    serv3-mysql:
+        extends:
+            file: mysql.yml
+            service: serv3-mysql
